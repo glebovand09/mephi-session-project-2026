@@ -1,0 +1,270 @@
+    1  lsblk
+    2  sudo mount /dev/sro mnt/cdrom
+    3  sudo mkdir -p /mnt/cdrom
+    4  sudo mount /dev/sro mnt/cdrom
+    5  sudo mkdir -p /mnt/cdrom
+    6  ls -ld /mnt/cdrom
+    7  sudo mount /dev/sro mnt/cdrom
+    8  ls -l /mnt/cdrom
+    9  sudo mount /dev/sro mnt/cdrom
+   10  ls -l /mnt/cdrom
+   11  nmcli device status
+   12  ip addr show >> net-status.out
+   13  cat net-status.out
+   14  ip route
+   15  sudo hostname mephi-2026.domain.local
+   16  hostname
+   17  echo "mephi-2026.domain.local | sudo tree /etc/hostname
+   18  cat /etc/hostname
+   19  MYIP=$(ip -4 adr show enpos3 | grep inet | head -n1 | awk '{print $2}' | cut -d/ -f1)
+   20  echo "$MYIP mephi-2026.domain.local mephi-2026" | sudo tee -a /etc/hosts
+   21  cat /etc/hosts
+   22  whoami
+   23  echo "mephi-2026.domain.local" | sudo tee /etc/hostname
+   24  cat /etc/hostname
+   25  MYIP=$(ip -4 addr show enpos3 | grep inet | head -n1 | awk '{print $2}' | cut -d/ -f1)
+   26  MYIP=$(ip -4 addr show enp0s3 | grep inet | head -n1 | awk '{print $2}' | cut -d/ -f1)
+   27  echo "$MYIP mephi-2026.domain.local mephi-2026" | sudo tee -a /etc/hosts
+   28  cat /etc/hosts
+   29  ping -c 4 8.8.8.8 > ping.out
+   30  cat ping.out
+   31  sudo mount /dev/cdrom/ mnt/cdrom
+   32  ls -d mnt/cdrom
+   33  sudo mkdir -p /mnt/cdrom
+   34  ls -d /mnt/cdrom
+   35  sudo mount /dev/cdrom/ mnt/cdrom
+   36  sudo mount /dev/cdrom /mnt/cdrom
+   37  ls /mnt/cdrom/VBoxLinuxAdditions.run
+   38  sudo dnf install -y kernel-devel gcc make perl
+   39  sudo /mnt/cdrom/VBoxLinuxAdditions.run
+   40  sudo dnf install -y bzip2 tar
+   41  sudo /mnt/cdrom/VBoxLinuxAdditions.run
+   42  sudo reboot
+   43  lsmod | grep vboxguest
+   44  sudo reboot
+   45  lsmod | grep vbox
+   46  sudo modprobe vboxvideo
+   47  VBoxClient --clipboard &
+   48  ps aux | grep -i VBoxClient
+   49  VBoxClient --clipboard & VBoxClient --display &
+   50  systemctl get-default
+   51  sudo systemctl set-default graphical.target
+   52  sudo reboot
+   53  systemctl get-default
+   54  ps aux | grep -i VBoxClient
+   55  ping -c 2 8.8.8.8
+   56  sudo dnf install -y xorg-x11-server-Xorg lightddm mate-session mate-terminal caja
+   57  dnf group list | grep -i mate
+   58  sudo dnf update -y
+   59  ps aux | grep -i dnf | -v grep
+   60  nginx -v
+   61  sudo dnf install -y nginx libcap-ng-utils
+   62  rpm -q nginx libcap-ng-utils
+   63  dnf help | grep download
+   64  sudo dnf download tcpdump --destdir /tmp
+   65  ls -l /tmp/tcpdump*.rpm
+   66  sudo rpm -ivh /tmp/tcpdump*.rpm
+   67  sudo rpm -Uvh /tmp/tcpdump*.rpm
+   68  rpm -q libpcap
+   69  sudo dnf download --destdir /tmp tcpdump.x86_64
+   70  rpm -ivh /tmp/tcpdump-*.x86_64.rpm
+   71  sudo rpm -ivh /tmp/tcpdump-*.x86_64.rpm
+   72  rpm -q nginx libcap-ng-utils tcpdump
+   73  tcpdump --version
+   74  sudo dnf history > dnf.out
+   75  cat dnf.out
+   76  mkdir -p ~/lab1
+   77  mv ping.out dnf.out ~/lab1/
+   78  ls -l ~/lab1
+   79  sudo poweroff
+   80  lsblk
+   81  sudo fdisk /dev/sdb
+   82  lsblk /dev/sdb
+   83  sudo mkfs.ext4 -L MEPHI_WEB /dev/sdb1
+   84  sudo blkid /dev/sdb1
+   85  sudo mkdir /mephi-web
+   86  sudo cp /etc/fstab /etc/fstab.bak
+   87  echo 'LABEL=MEPHI_WEB /mephi-web ext4 defaults 0 0' | sudo tee -a /etc/fstab
+   88  sudo mount -a
+   89  sudo systemctl daaemon-reload
+   90  sudo systemctl daemon-reload
+   91  sudo mount -a
+   92  df -h /mephi-web
+   93  findmnt /mephi-web
+   94  mount -l | grep mephi
+   95  ls -l /etc/fstab*
+   96  sudo reboot
+   97  chvt 3
+   98  whoami
+   99  chvt 3; echo exit=$?
+  100  fgconsole
+  101  exit
+  102  sudo cat -A /etc/security/access.conf | grep -v "^#" | grep -v"^$"
+  103  sudo cat -A /etc/security/access.conf | grep -v "^#" | grep -v "^$"
+  104  grep -rn "pam_access" /etc/pam.d/
+  105  cat /etc/pam.d/login
+  106  hostname
+  107  sudo hostnamectl set-hostname mephi-2026
+  108  cat /etc/hosts
+  109  sudo vi /etc/hosts
+  110  exit
+  111  sudo sed -i 's/pam_access.so\$/pam.access.so debug/' /etc/pam.d/login
+  112  sudo sed -i 's/pam_access.so\$/pam_access.so debug/' /etc/pam.d/login
+  113  grep pam_access /etc/pam.d/login
+  114  sudo sed -i 's/pam_access.so\$/pam_access.so debug/' /etc/pam.d/login
+  115  sudo sed -i 's/pam_access.so/pam_access.so debug/' /etc/pam.d/login
+  116  grep pam_access /etc/pam.d/login
+  117  exit
+  118  sudo tail -50 //var/log/secure
+  119  sudo journalctl --since "10 minutes ago" | grep -i pam
+  120  sudo vi /etc/security/access.conf
+  121  getend group curators
+  122  grep curators /etc/group
+  123  exit
+  124  sudo grep -En '^[+-]:' /etc/security/access.conf
+  125  grep pam_access /etc/pam.d/login
+  126  date
+  127  exit
+  128  sudo journalctl --since "3 minutes ago" --no-pager | grep -i access
+  129  sudo sed -i 's/-:%curators:LOCAL/-:curator1 curator2:LOCAL/' /etc/security/access.conf
+  130  sudo grep -En '^[+-]:' /etc/security/access.conf
+  131  exit
+  132  df -h /mephi-web
+  133  mount -l | grep mephi
+  134  rpm-q nginx
+  135  command -v nginx
+  136  sudo systemctl start nginx
+  137  sudo systemctl enable nginx
+  138  systemctl status nginx
+  139  ps aux | grep nginx
+  140  curl -I http://localhost
+  141  sudo journalctl -u nginx -b > journaalctl.out
+  142  ls-l journalctl.out
+  143  ls -l journalctl.out
+  144  sudo journalctl -u nginx -b > journalctl.out
+  145  ls -l journalctl.out
+  146  rm journaalctl.out
+  147  ls -l journal*
+  148  cat journalctl.out
+  149  sudo groupadd -g 5555 developers
+  150  grep developers /etc/group
+  151  sudo useradd -u 5501 -g developers -m -s /bin/bash/ user1
+  152  sudo useradd -u 5502 -g developers -m -s /bin/bash/ user2
+  153  sudo useradd -u 5503 -g developers -m -s /bin/bash/ user3
+  154  id user1
+  155  sudo groupadd -g 4444 curators
+  156  sudo useradd -m -s /bin/bash curator1
+  157  sudo useradd -m -s /bin/bash curator2
+  158  sudo usermod -aG curators curator1
+  159  sudo usermod -aG curators curator2
+  160  id curator1
+  161  sudo passwd user1
+  162  sudo passwd user2
+  163  sudo passwd user3
+  164  sudo passwd curator1
+  165  sudo passwd curator2
+  166  sudo mkdir -p /data/mephi-2026
+  167  sudo chown root:developers /data/mephi-2026
+  168  sudo chmod 2770 /data/mephi-2026
+  169  ls -ld /data/mephi-2026
+  170  sudo dnf install -y acl
+  171  sudo setfacl -m g:curators:r-x /data/mephi-2026
+  172  sudo setfacl -d -m u::rwx,g::rwx,g:curators:r-x,o::--- /data/mephi-2026
+  173  getfacl /data/mephi-2026
+  174  su - user1
+  175  grep user1 /etc/passwd
+  176  sudo usermod -s /bin/bash user1
+  177  grep user1 /etc/passwd
+  178  sudo usermod -s /bin/bash user2
+  179  sudo usermod -s /bin/bash user3
+  180  sudo usermod -s /bin/bash curator1
+  181  sudo usermod -s /bin/bash curator2
+  182  grep curator1 /etc/passwd
+  183  su - user1
+  184  su - user2
+  185  su - curator1
+  186  sudo -u nobody cat /data/mephi-2026/file1.txt
+  187  sudo dnf install -y tcpdump
+  188  ls -l $(command -v tcpdump)
+  189  sudo chmod u-s /usr/sbin/tcpdump
+  190  sudo setcap cap_net_raw+eip /usr/sbin/tcpdump
+  191  getcap /usr/sbin/tcpdump
+  192  ls -l /usr/sbin/tcpdump
+  193  sudo -u user1 tcpdump -c 3 -i any
+  194  getenforce
+  195  sudo dnf install -y policycoreutils-python-utils
+  196  sudo mkdir -p /mephi-web
+  197  ls -ld /mephi-web
+  198  ls -la /mephi-web
+  199  sudo semanage fcontext -a -t httpd_sys_content_t "/mephi-web(/.*)?"
+  200  sudo restorecon -Rv /mephi-web
+  201  ls - Zd /mephi-web
+  202  ls -Zd /mephi-web
+  203  echo "<h1>MEPHI 2026</h1>" | sudo tee /mephi-web/index.html
+  204  sudo chmod 644 /mephi-web/index.html
+  205  ls -Z /mephi-web/index.html
+  206  cat /mephi-web/index.html
+  207  sudo vi /etc/nginx/nginx.conf
+  208  sudo nginx -t
+  209  sudo systemctl reload nginx
+  210  curl http://loalhost
+  211  curl http://127.0.0.1
+  212  cat /etc/hosts
+  213  curl http://localhost
+  214  id curator1
+  215  id user1
+  216  sudo vi /etc/security/access.conf
+  217  tail -n 1 /etc/security/access.conf
+  218  sudo vi /etc/pam.d/system.auth
+  219  ls /etc/pam.d/
+  220  grep -l "account" /etc/pam.d/*
+  221  grep -n "account" /etc/pam.d/*
+  222  sudo vi /etc/pam.d/login
+  223  grep -n "pam_access" /etc/pam.d/login
+  224  sudo vi /etc/pam.d/password-auth
+  225  grep -n "pam_access" /etc/pam.d/password-auth
+  226  grep -n "pam_access" /etc/pam.d/login /etc/pam.d/password-auth
+  227  sudo cgvt 3
+  228  sudo chvt 3
+  229  sudo sed -i 's/ debug//' /etc/pam.d/login
+  230  grep pam_access /etc/pam.d/login
+  231  sudo poweroff
+  232  sudo vi /etc/login.defs
+  233  sudo chage -l user1 | grep Maximum
+  234  sudo chage -l user2 | grep Maximum
+  235  sudo chage -l user3 | grep Maximum
+  236  sudo chage -M 90 user1
+  237  sudo chage -M 90 user2
+  238  sudo chage -M 90 user3
+  239  sudo chage -M 90 curator1
+  240  sudo chage -M 90 curator2
+  241  sudo chage -M 90 glebovandrey
+  242  sudo chage -l user1
+  243  for u in user1 user2 user3 curator1 curetor2 glebovandrey; do sudo chage -M 90 "\$u"; dor; for u in user1 user2 user3 curator1 curetor2 glebovandrey; do sudo chage -M 90 "\$u"; done; 
+  244  for u in user1 user2 user3 curator1 curator2 glebovandrey; do sudo chage -M 90 "\$u"; done
+  245  getend passwd glebovandrey 
+  246  cat /etc/passwd
+  247  passwd
+  248  sudo chage -l user1 | grep Maximum
+  249  for u in user1 user2 user3 curator1 curator2 glebovandrey; do sudo chage -M 90 "$u"; done
+  250  for u in user1 user2 user3 curator1 curator2 glebovandrey; do echo -n "$u: "; sudo chage -l "$u" | grep Maximum; done
+  251  sudo chage -l user1
+  252  for u in user1 user2 user3 curator1 curator2 glebovandrey; do echo -n "$u: "; sudo chage -l "$u" | grep -i "максим"; done
+  253  sudo vi /etc/security/pwquality.conf
+  254  exit
+  255  grep -n "^minlen" /etc/security/pwquality.conf
+  256  grep -n "minlen" /etc/security/pwquality.conf
+  257  sudo sed -i 's/^# minlen = 12/minlen = 12/' /etc/security/pwquality.conf
+  258  grep -n "^minlen" /etc/security/pwquality.conf
+  259  exit
+  260  sudo mkdir -p /mephi-web
+  261  echo "Hello from Student: 375720" | sudo tee /mephi-web/index.html
+  262  cat /mephi-web/index.html
+  263  sudo vi /etc/nginx/nginx.conf
+  264  grep -n "root" /etc/nginx/nginx.conf
+  265  sudo nginx -t
+  266  systemctl ststus nginx
+  267  systemctl status nginx
+  268  sudo systemctl reload nginx
+  269  curl http://localhost/
+  270  history > ~/history.out
